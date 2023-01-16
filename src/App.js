@@ -12,8 +12,8 @@ function App() {
      <Title title='Login' />
      <Input label='Usuário'/>
      <Input label='Senha'/>
-     <Button name='Login'/>
-     <Link text='Esqueceu a senha?'/>
+     <Button  name='Login'/>
+     <Link link='https://www.google.com' text='Esqueceu a senha?'/>
     </div>
   );
 }
