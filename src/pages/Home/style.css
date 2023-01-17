@@ -1,0 +1,23 @@
+
+h1{
+    margin-bottom: 40px;
+
+}
+
+button {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 40px;
+    border-radius: 6px;
+    background-color: #a13854;
+    color: #fff;
+    opacity: 0.8;
+    border: none;
+    margin: 10px 0px;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
