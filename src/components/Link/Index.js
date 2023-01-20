@@ -1,6 +1,6 @@
 import './style.css'; 
 
-function Link(props) {
+const Link = (props) => {
     return(
        
         <a className='link' href={props.link} target="_blank" rel="external">{props.text}</a>

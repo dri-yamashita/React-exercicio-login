@@ -2,16 +2,16 @@ import './style.css'
 import {useNavigate} from "react-router-dom";
 
 
-function Home () {
+const Home =  () => {
     const navigate = useNavigate();
 
-    function voltarLogin(){
+    const voltarLogin = () => {
         navigate("/")
     }
     return (
     <>
     <h1>Home</h1>
-    <button onClick={voltarLogin}>
+    <button onClick={voltarLogin} title='Voltar login'>
       Voltar Login
     </button>
     </>
@@ -20,7 +20,4 @@ function Home () {
 
 export default Home;
  
-
-
-
 

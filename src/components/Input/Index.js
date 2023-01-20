@@ -1,14 +1,19 @@
-import './style.css'; 
+import './style.css';
+import PropTypes from "prop-types";
 
-function Input(props) {
+
+const Input = ({label, onChange, value}) =>  {
     return (
         <div className='Input'>
-            <label for='input'>{props.label}</label>
-            <input name='input'/>
+            <label for='input'>{label}</label>
+            <input name='input' onChange={onChange} value={value}/>
         </div>
     );
 }
 
+Input.propTypes = {
+    label: PropTypes.string,
+};
 
 
 export default Input;
