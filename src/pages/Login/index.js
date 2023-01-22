@@ -1,5 +1,6 @@
 
 import  '../../App.css';
+
 import Title from '../../components/Title/Index.js';
 import Input from '../../components/Input/Index.js';
 import Button from '../../components/Button/Index.js';
@@ -12,28 +13,63 @@ import { useState } from "react";
 
 const Login = () =>  {
   const navigate = useNavigate();
-  const [title, setTitle] = useState("Login");
-  const [subtitle, setSubtitle] = useState ("")
 
+  const [title, setTitle] = useState("Login");
+  const [showError, setShowError] = useState(false);
+  const [colorInput, setColorInput] = useState(false);
+  //const [subtitle, setSubtitle] = useState ("");
+
+  //valor do input do usuário:
+  const [nomeDeUsuario, setNomeDeUsuario] = useState ("")
+
+  //valor do input da senha:
+  const [senha, setSenha] = useState ("")
+  const [usuarios, setUsuarios] = useState([
+    {
+      email: 'joão@hotmail.com',
+      senha: 'oidevs',
+    },
+    {
+      email: 'jady@oi.com.br',
+      senha: 'oidevs',
+    },
+    {
+      email: 'raniel@oi.com.br',
+      senha: 'caneta',
+    }
+  ]);
+  
   const vaParaHome = () => {
-    navigate("/home");
-  }
+    const usuarioEscolhido = usuarios.find((usuario) => usuario.email ===       nomeDeUsuario && usuario.senha === senha );
+   
+    if (usuarioEscolhido) {
+      navigate("/home");
+    } else {
+      setShowError(true);
+      mudarColorInput(true)
+      // alert("Credenciais Invalidas");
+      }
+    };
+
 
   const mudarTitulo = () => {
-    setTitle("Teste state")
+    setTitle("Testando o State")
   }
 
-  const novoSubtitle = (event) => {
-    setSubtitle(event.target.value)
-  }
+  //const novoSubtitle = (event) => {
+   // setSubtitle(event.target.value)
+  
+   const mudarColorInput = () => {
+    setColorInput("red")
+   }
 
   return (
     <div className="container">
      <Title text={title} />
-     <Subtitle text={subtitle} />
-     <Input label='Usuário' value={subtitle} onChange={novoSubtitle}/>
-     <Input label='Senha' hideContent />
-     <Button title='Entrar' aoClicar={vaParaHome} />
+     {showError ? <Subtitle text='Credenciais Inválidas' /> : <Title text={""}/>}
+     <Input label='E-mail' color={colorInput} onChange={(e) => setNomeDeUsuario(e.target.value)} /> {colorInput ? true : null}
+     <Input label='Senha' color={colorInput} onChange={(e) => setSenha(e.target.value)} hideContent />
+     <Button title='Entrar' aoClicar={vaParaHome}  bgColor="blue" />
      <Button title='Trocar título' aoClicar={mudarTitulo} />
      <Link link='https://www.google.com' text='Esqueceu a senha?'/>
     </div>
@@ -41,6 +77,7 @@ const Login = () =>  {
 }
 
 export default Login;
+
 
 
 

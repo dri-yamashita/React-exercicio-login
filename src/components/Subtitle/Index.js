@@ -10,7 +10,6 @@ Subtitle.propTypes = {
 }
 
 
-
 export default Subtitle;
 
 

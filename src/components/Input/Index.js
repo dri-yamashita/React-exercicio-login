@@ -2,10 +2,10 @@ import './style.css';
 import PropTypes from "prop-types";
 
 
-const Input = ({label, onChange, value}) =>  {
+const Input = ({label, onChange, value, color}) =>  {
     return (
         <div className='Input'>
-            <label for='input'>{label}</label>
+            <label style={{ color: color}} for='input'>{label}</label>
             <input name='input' onChange={onChange} value={value}/>
         </div>
     );
