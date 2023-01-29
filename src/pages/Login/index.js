@@ -11,6 +11,7 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 
+
 const Login = () =>  {
   const navigate = useNavigate();
 
@@ -24,18 +25,26 @@ const Login = () =>  {
 
   //valor do input da senha:
   const [senha, setSenha] = useState ("")
-  const [usuarios, setUsuarios] = useState([
+  const [usuarios] = useState([
     {
+      id: 1,
       email: 'joão@hotmail.com',
       senha: 'oidevs',
     },
     {
+      id: 2,
       email: 'jady@oi.com.br',
       senha: 'oidevs',
     },
     {
+      id: 3,
       email: 'raniel@oi.com.br',
       senha: 'caneta',
+    },
+    {
+      id: 4,
+      email: 'carol@oi.com.br',
+      senha: 'carol',
     }
   ]);
   
@@ -43,7 +52,7 @@ const Login = () =>  {
     const usuarioEscolhido = usuarios.find((usuario) => usuario.email ===       nomeDeUsuario && usuario.senha === senha );
    
     if (usuarioEscolhido) {
-      navigate("/home");
+      navigate("/home", { state: {listaDeUsuarios:usuarios} });
     } else {
       setShowError(true);
       mudarColorInput(true)
@@ -60,10 +69,14 @@ const Login = () =>  {
    // setSubtitle(event.target.value)
   
    const mudarColorInput = () => {
-    setColorInput("red")
+    setColorInput("#a13854")
    }
 
   return (
+
+    //<ul>
+      //<li key={id.usuario} onClick={() => }
+    //</ul>
     <div className="container">
      <Title text={title} />
      {showError ? <Subtitle text='Credenciais Inválidas' /> : <Title text={""}/>}
@@ -75,5 +88,6 @@ const Login = () =>  {
     </div>
   );
 }
+
 
 export default Login;

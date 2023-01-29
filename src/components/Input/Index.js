@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 const Input = ({label, onChange, value, color}) =>  {
     return (
         <div className='Input'>
-            <label style={{ color: color}} for='input'>{label}</label>
+            <label style={{ color: color}} >{label}</label>
             <input name='input' onChange={onChange} value={value}/>
         </div>
     );
