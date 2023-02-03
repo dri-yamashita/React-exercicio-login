@@ -28,21 +28,25 @@ const Login = () =>  {
   const [usuarios] = useState([
     {
       id: 1,
+      //name: 'João'
       email: 'joão@hotmail.com',
       senha: 'oidevs',
     },
     {
       id: 2,
+      //name: 'Jady'
       email: 'jady@oi.com.br',
       senha: 'oidevs',
     },
     {
       id: 3,
+      //name:'Raniel'
       email: 'raniel@oi.com.br',
       senha: 'caneta',
     },
     {
       id: 4,
+      //name: 'Carol'
       email: 'carol@oi.com.br',
       senha: 'carol',
     }
@@ -53,6 +57,8 @@ const Login = () =>  {
    
     if (usuarioEscolhido) {
       navigate("/home", { state: {listaDeUsuarios:usuarios} });
+      navigate('/home', {state:{ listaDeUsuarios:usuarios, usuArio: usuarioEscolhido}})
+
     } else {
       setShowError(true);
       mudarColorInput(true)
@@ -82,7 +88,7 @@ const Login = () =>  {
      {showError ? <Subtitle text='Credenciais Inválidas' /> : <Title text={""}/>}
      <Input label='E-mail' color={colorInput} onChange={(e) => setNomeDeUsuario(e.target.value)} /> {colorInput ? true : null}
      <Input label='Senha' color={colorInput} onChange={(e) => setSenha(e.target.value)} hideContent />
-     <Button title='Entrar' aoClicar={vaParaHome}  bgColor="blue" />
+     <Button title='Entrar' aoClicar={vaParaHome} />
      <Button title='Trocar título' aoClicar={mudarTitulo} />
      <Link link='https://www.google.com' text='Esqueceu a senha?'/>
     </div>
